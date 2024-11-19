@@ -1,0 +1,1 @@
+# partners-terraform-example
