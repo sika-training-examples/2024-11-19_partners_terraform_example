@@ -6,19 +6,16 @@ terraform {
     }
   }
   backend "http" {}
+  required_version = "~> 1.0"
 }
 
 provider "aws" {
   region = "eu-central-1"
 }
 
-resource "random_pet" "name" {}
-resource "random_password" "name" {
-  length = 1
-}
-
 module "s3" {
-  source = "./s3"
+  source = "git::https://github.com/sika-training-examples/2024-11-19_partners_terraform_example.git//s3?ref=master"
+
   for_each = {
     aaa = null
     bbb = {}
